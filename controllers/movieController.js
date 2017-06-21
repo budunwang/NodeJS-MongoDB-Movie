@@ -65,10 +65,10 @@ exports.list = function(req, res) {
 
 // 从数据库中删除电影
 // 向list列表返回success，进行删除
-exports.listDelte = function(req, res) {
+exports.delete = function(req, res) {
     let id = req.query.id;
     if(id){
-        Movie.remove({_id: id}, (err, res) => {
+        Movie.remove({_id: id}, (err, result) => {
             if(err) {
                 console.log(err);
             } else {

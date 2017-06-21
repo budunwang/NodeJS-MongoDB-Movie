@@ -9,6 +9,6 @@ router.get('/movie/:id', movie_controller.detail);
 router.get('/admin/movie', movie_controller.admin);
 router.post('/admin/movie/new', movie_controller.newMovie);
 router.get('/admin/update/:id', movie_controller.update);
-router.delete('/admin/list', movie_controller.listDelte);
+router.delete('/admin/list', movie_controller.delete);
 
 module.exports = router;

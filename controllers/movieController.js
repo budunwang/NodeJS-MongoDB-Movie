@@ -2,6 +2,7 @@ const Movie = require('../models/movie');
 const _ = require('underscore');
 
 // admin 后台管理页
+// admin/movie
 exports.admin = function(req, res) {
     res.render('admin', {
         title: 'Movie Admin',
@@ -50,6 +51,7 @@ exports.index = function(req, res) {
 }
 
 // list 列表页
+// admin/movie/list
 exports.list = function(req, res) {
     Movie.fetch((err, movies) => {
         if(err) {
@@ -123,7 +125,7 @@ exports.newMovie = function(req, res) {
 }
 
 // 更新电影信息，进入admin后台页
-// /admin/update/:id
+// /admin/movie/update/:id
 exports.update = function(req, res) {
     let id = req.params.id;
     if(id) {

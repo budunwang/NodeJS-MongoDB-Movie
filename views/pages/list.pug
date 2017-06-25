@@ -24,8 +24,8 @@ block content
                                 td= item.language
                                 td= item.year
                                 td= moment(item.meta.updateAt).format('MM/DD/YYYY')
-                                td: a(target="_blank",href="../movie/"+item._id) check
-                                td: a(target="_blank",href="../admin/update/"+item._id) modify
+                                td: a(target="_blank",href="/movie/"+item._id) check
+                                td: a(target="_blank",href="/admin/movie/update/"+item._id) modify
                                 td
                                     button.btn-danger.del(type="button", data-id=item._id) delete
     script(src="/javascripts/admin.js")

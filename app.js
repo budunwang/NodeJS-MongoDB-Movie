@@ -36,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 设置session数据库持久化
 app.use(session({
     secret: 'movie',
+    resave: false,
+    saveUnitialized: true,
     store: new mongoStore({
         url: db_url,
         collection: 'sessions'

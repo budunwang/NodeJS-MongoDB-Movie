@@ -48,7 +48,7 @@ exports.signup = function(req, res) {
                if(err) {
                    console.log(err);
                }
-               return res.redirect('/signin');
+               return res.redirect('/');
            });
        }
     });

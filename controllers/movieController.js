@@ -1,4 +1,5 @@
 const Movie = require('../models/movie');
+const Comment = require('../models/comment');
 const _ = require('underscore');
 
 // admin 后台管理页
@@ -26,12 +27,18 @@ exports.detail = function(req, res) {
     Movie.findById(id, (err, movie) => {
         if(err) {
             console.log(err);
-        } else {
-            res.render('detail', {
-                title: movie.title,
-                movie: movie
-            });
         }
+        Comment
+            .find({movie: id})
+            .populate('from', 'name')
+            .populate('reply.from reply.to', 'name')
+            .exec((err, comments) => {
+                res.render('detail', {
+                    title: movie.title,
+                    movie: movie,
+                    comments: comments
+                });
+            });
     });
 }
 

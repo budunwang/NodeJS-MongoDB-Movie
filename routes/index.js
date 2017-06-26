@@ -2,6 +2,7 @@ const express = require('express');
 
 let movie_controller = require('../controllers/movieController');
 let user_controller = require('../controllers/userController');
+let comment_controller = require('../controllers/commentController');
 let router = express.Router();
 
 // route过滤器
@@ -31,5 +32,7 @@ router.get('/signup', user_controller.showSignUp);
 router.get('/signin', user_controller.showSignIn);
 router.get('/user/logout', user_controller.logout);
 router.get('/admin/user/list', user_controller.signinRequire, user_controller.adminRequire, user_controller.userList);
+
+router.post('/admin/comment', user_controller.signinRequire, comment_controller.save);
 
 module.exports = router;
